@@ -44,6 +44,7 @@ if __name__ == "__main__":
         def evaluate(self, parameters, config):  # type: ignore
             utils.set_model_params(model, parameters)
             preds = model.predict_proba(X_test)
+            all_classes = {'7','6','5','4','3','2','1','0'}
             loss = log_loss(y_test, preds , labels =[7,6,5,4,3,2,1,0])
             accuracy = model.score(X_test, y_test)
             return loss, len(X_test), {"accuracy": accuracy}
